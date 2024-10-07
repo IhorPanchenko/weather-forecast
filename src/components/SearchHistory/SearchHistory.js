@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { getWeatherClass } from "../../utils/utils";
 import styles from "./SearchHistory.module.css";
 
@@ -6,18 +7,29 @@ const SearchHistory = ({ history }) => {
     <div className={styles.searchHistory}>
       <h3>Last 5 searches:</h3>
       <ul>
-        {history.map((item, index) => (
-          <li className={styles[getWeatherClass(item.temp)]} key={index}>
+        {history.map(({ name, temp, weather, icon }, index) => (
+          <li className={styles[getWeatherClass(temp)]} key={index}>
             <img
-              src={`https://openweathermap.org/img/wn/${item.icon}.png`}
-              alt="weather icon"
+              src={`https://openweathermap.org/img/wn/${icon}.png`}
+              alt={`${weather} icon`}
             />
-            <strong>{item.name}</strong> {item.temp}°C, {item.weather}
+            <strong>{name}</strong> {temp}°C, {weather}
           </li>
         ))}
       </ul>
     </div>
   );
+};
+
+SearchHistory.propTypes = {
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      temp: PropTypes.number.isRequired,
+      weather: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default SearchHistory;
