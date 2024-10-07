@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWeather } from "../../features/weather/weatherSlice";
+import { fetchWeather } from "../../api/weatherApi";
 import SearchHistory from "../SearchHistory/SearchHistory";
 import { getWeatherClass } from "../../utils/utils";
 import styles from "./Weather.module.css";
