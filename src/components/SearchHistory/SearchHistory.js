@@ -1,12 +1,13 @@
-import { getWeatherClass } from "../utils/utils";
+import { getWeatherClass } from "../../utils/utils";
+import styles from "./SearchHistory.module.css";
 
 const SearchHistory = ({ history }) => {
   return (
-    <div className="search-history">
+    <div className={styles.searchHistory}>
       <h3>Last 5 searches:</h3>
       <ul>
         {history.map((item, index) => (
-          <li className={getWeatherClass(item.temp)} key={index}>
+          <li className={styles[getWeatherClass(item.temp)]} key={index}>
             <img
               src={`https://openweathermap.org/img/wn/${item.icon}.png`}
               alt="weather icon"

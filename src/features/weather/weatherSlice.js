@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// const API_KEY = "7929ccdb59549afcfa7312570897f56e";
-// const weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather";
-
 export const fetchWeather = createAsyncThunk(
   "weather/fetchWeather",
   async (city) => {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWeather } from "../features/weather/weatherSlice";
-import SearchHistory from "./SearchHistory";
-import { getWeatherClass } from "../utils/utils";
+import { fetchWeather } from "../../features/weather/weatherSlice";
+import SearchHistory from "../SearchHistory/SearchHistory";
+import { getWeatherClass } from "../../utils/utils";
+import styles from "./Weather.module.css";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -42,7 +43,7 @@ const Weather = () => {
   };
 
   return (
-    <div className="weather-container">
+    <div className={styles.weatherContainer}>
       <h1>Weather Forecast</h1>
       <input
         type="text"
@@ -52,10 +53,12 @@ const Weather = () => {
       />
       <button onClick={handleFetchWeather}>Get Weather</button>
 
-      {status === "loading" && <p className="loading">Loading...</p>}
+      {status === "loading" && <p className={styles.loading}>Loading...</p>}
       {status === "succeeded" && weatherData && (
         <div
-          className={`weather-info ${getWeatherClass(weatherData.main.temp)}`}
+          className={`${styles.weatherInfo} ${
+            styles[getWeatherClass(weatherData.main.temp)]
+          }`}
         >
           <h2>{weatherData.name}</h2>
           <p>Temperature: {weatherData.main.temp}°C</p>
@@ -66,7 +69,7 @@ const Weather = () => {
           />
         </div>
       )}
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className={styles.errorMessage}>{error}</p>}
 
       {history.length > 0 && <SearchHistory history={history} />}
     </div>
