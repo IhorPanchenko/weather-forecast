@@ -14,6 +14,12 @@ const Weather = () => {
   };
   console.log(weatherData);
 
+  const getWeatherClass = (temp) => {
+    if (temp > 15) return "warm-weather";
+    if (temp > 5 && temp < 15) return "fall-weather";
+    return "cold-weather";
+  };
+
   return (
     <div className="weather-container">
       <h1>Weather Forecast</h1>
@@ -27,9 +33,11 @@ const Weather = () => {
 
       {status === "loading" && <p className="loading">Loading...</p>}
       {status === "succeeded" && weatherData && (
-        <div className="weather-info">
+        <div
+          className={`weather-info ${getWeatherClass(weatherData.main.temp)}`}
+        >
           <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp}</p>
+          <p>Temperature: {weatherData.main.temp}°C</p>
           <p>Weather: {weatherData.weather[0].description}</p>
         </div>
       )}
