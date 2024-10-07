@@ -2,15 +2,18 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../features/weather/weatherSlice";
 import SearchHistory from "./SearchHistory";
+import { getWeatherClass } from "../utils/utils";
 
 const Weather = () => {
   const [city, setCity] = useState("");
   const [history, setHistory] = useState([]);
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
-  const { weatherData, status, error } = useSelector((state) => state.weather);
+  const { weatherData, status } = useSelector((state) => state.weather);
 
   const handleFetchWeather = () => {
     if (city) {
+      setError("");
       dispatch(fetchWeather(city)).then((response) => {
         if (response.payload) {
           setHistory((prevHistory) => {
@@ -23,22 +26,19 @@ const Weather = () => {
                 icon: response.payload.weather[0].icon,
               },
             ];
-            console.log("11111" + newHistory.name);
+
             if (newHistory.length > 5) {
               newHistory.shift();
             }
             return newHistory;
           });
+        } else {
+          setError("Please enter a valid city name");
         }
       });
+    } else {
+      setError("City name cannot be empty");
     }
-  };
-  console.log(weatherData);
-
-  const getWeatherClass = (temp) => {
-    if (temp > 15) return "warm-weather";
-    if (temp > 5 && temp < 15) return "fall-weather";
-    return "cold-weather";
   };
 
   return (
@@ -66,7 +66,7 @@ const Weather = () => {
           />
         </div>
       )}
-      {status === "failed" && <p className="error-message">Error: {error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       {history.length > 0 && <SearchHistory history={history} />}
     </div>

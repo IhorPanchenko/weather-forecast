@@ -55,17 +55,17 @@ button:hover {
 }
 
 .warm-weather {
-  background-color: #ffde91;
+  background-color: #ffe5b4;
   color: #804800;
 }
 
 .fall-weather {
-  background-color: #ffa26b;
+  background-color: #f0e68c;
   color: #663300;
 }
 
 .cold-weather {
-  background-color: #91cfff;
+  background-color: #add8e6;
   color: #003366;
 }
 
@@ -113,7 +113,9 @@ button:hover {
 }
 
 .search-history li {
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
