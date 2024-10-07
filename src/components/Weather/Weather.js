@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../api/weatherApi";
 import SearchHistory from "../SearchHistory/SearchHistory";
 import { getWeatherClass } from "../../utils/utils";
+import { resetWeather } from "../../features/weather/weatherSlice";
 import styles from "./Weather.module.css";
 
 const Weather = () => {
@@ -12,9 +13,14 @@ const Weather = () => {
   const dispatch = useDispatch();
   const { weatherData, status } = useSelector((state) => state.weather);
 
+  const handleReset = () => {
+    dispatch(resetWeather());
+  };
+
   const handleFetchWeather = () => {
     if (city) {
       setError("");
+
       dispatch(fetchWeather(city)).then((response) => {
         if (response.payload) {
           setHistory((prevHistory) => {
@@ -52,6 +58,7 @@ const Weather = () => {
         placeholder="Enter city"
       />
       <button onClick={handleFetchWeather}>Get Weather</button>
+      <button onClick={handleReset}>Reset</button>
 
       {status === "loading" && <p className={styles.loading}>Loading...</p>}
       {status === "succeeded" && weatherData && (

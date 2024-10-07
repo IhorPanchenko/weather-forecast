@@ -1,16 +1,35 @@
+:root {
+  --background-color: #f0f4f8;
+  --text-color: #333;
+  --font-family: "Poppins", sans-serif;
+  --code-font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
-  margin: auto;
-  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  text-align: center;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: var(--code-font-family);
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #c7254e;
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.875rem;
+  }
 }

@@ -52,6 +52,7 @@ input:focus {
 button {
   padding: 12px 24px;
   margin-top: 15px;
+  margin-right: 10px;
   background-color: var(--primary-color);
   color: white;
   font-size: 1rem;

@@ -1,47 +1,38 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchWeather } from "../../api/weatherApi";
-// export const fetchWeather = createAsyncThunk(
-//   "weather/fetchWeather",
-//   async (city) => {
-//     const API_KEY = "7929ccdb59549afcfa7312570897f56e";
-//     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 
-//     try {
-//       const response = await fetch(url);
-//       if (!response.ok) {
-//         throw new Error("City not found");
-//       }
-//       const data = await response.json();
-//       return data;
-//     } catch (error) {
-//       console.error(error);
-//       throw error;
-//     }
-//   }
-// );
+const initialState = {
+  weatherData: null,
+  status: "idle",
+  error: null,
+};
 
 const weatherSlice = createSlice({
   name: "weather",
-  initialState: {
-    weatherData: null,
-    status: "idle",
-    error: null,
+  initialState,
+  reducers: {
+    resetWeather: (state) => {
+      state.weatherData = null;
+      state.status = "idle";
+      state.error = null;
+    },
   },
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchWeather.pending, (state) => {
         state.status = "loading";
+        state.error = null;
       })
-      .addCase(fetchWeather.fulfilled, (state, action) => {
+      .addCase(fetchWeather.fulfilled, (state, { payload }) => {
         state.status = "succeeded";
-        state.weatherData = action.payload;
+        state.weatherData = payload;
       })
-      .addCase(fetchWeather.rejected, (state, action) => {
+      .addCase(fetchWeather.rejected, (state, { error }) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = error.message || "Failed to fetch weather data";
       });
   },
 });
 
+export const { resetWeather } = weatherSlice.actions;
 export default weatherSlice.reducer;
