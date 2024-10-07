@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../features/weather/weatherSlice";
+import SearchHistory from "./SearchHistory";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -19,6 +20,7 @@ const Weather = () => {
                 name: response.payload.name,
                 temp: response.payload.main.temp,
                 weather: response.payload.weather[0].description,
+                icon: response.payload.weather[0].icon,
               },
             ];
             console.log("11111" + newHistory.name);
@@ -66,18 +68,7 @@ const Weather = () => {
       )}
       {status === "failed" && <p className="error-message">Error: {error}</p>}
 
-      {history.length > 0 && (
-        <div className="search-history">
-          <h3>Last 5 searches:</h3>
-          <ul>
-            {history.map((item, index) => (
-              <li key={index}>
-                <strong>{item.name}:</strong> {item.temp}°C, {item.weather}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {history.length > 0 && <SearchHistory history={history} />}
     </div>
   );
 };

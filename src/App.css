@@ -96,3 +96,35 @@ button:hover {
   color: #0077ff;
   margin-top: 20px;
 }
+
+.search-history {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.search-history h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.search-history ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.search-history li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.search-history li:hover {
+  background-color: #e0e0e0;
+}
+
+.search-history li strong {
+  color: #0077ff;
+}
