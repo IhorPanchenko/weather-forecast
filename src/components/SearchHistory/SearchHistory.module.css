@@ -1,10 +1,22 @@
+:root {
+  --primary-color: #0077ff;
+  --warm-bg: #ffe5b4;
+  --warm-text: #804800;
+  --fall-bg: #f0e68c;
+  --fall-text: #663300;
+  --cold-bg: #add8e6;
+  --cold-text: #003366;
+  --hover-bg: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.05);
+}
+
 .searchHistory {
   margin-top: 20px;
   text-align: left;
 }
 
 .searchHistory h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-bottom: 10px;
 }
 
@@ -15,34 +27,45 @@
 
 .searchHistory li {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .searchHistory li:hover {
-  background-color: #e0e0e0;
+  background-color: var(--hover-bg);
+  transform: scale(1.02);
 }
 
 .searchHistory li strong {
-  color: #0077ff;
+  color: var(--primary-color);
+  margin-right: 8px;
 }
 
 .warm {
-  background-color: #ffe5b4;
-  color: #804800;
+  background-color: var(--warm-bg);
+  color: var(--warm-text);
 }
 
 .fall {
-  background-color: #f0e68c;
-  color: #663300;
+  background-color: var(--fall-bg);
+  color: var(--fall-text);
 }
 
 .cold {
-  background-color: #add8e6;
-  color: #003366;
+  background-color: var(--cold-bg);
+  color: var(--cold-text);
+}
+
+@media (max-width: 600px) {
+  .searchHistory h3 {
+    font-size: 1.1rem;
+  }
+
+  .searchHistory li {
+    padding: 8px;
+  }
 }
