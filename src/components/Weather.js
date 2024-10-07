@@ -25,7 +25,7 @@ const Weather = () => {
       />
       <button onClick={handleFetchWeather}>Get Weather</button>
 
-      {status === "loading" && <p>Loading...</p>}
+      {status === "loading" && <p className="loading">Loading...</p>}
       {status === "succeeded" && weatherData && (
         <div className="weather-info">
           <h2>{weatherData.name}</h2>
@@ -33,7 +33,7 @@ const Weather = () => {
           <p>Weather: {weatherData.weather[0].description}</p>
         </div>
       )}
-      {status === "failed" && <p>Error: {error}</p>}
+      {status === "failed" && <p className="error-message">Error: {error}</p>}
     </div>
   );
 };
