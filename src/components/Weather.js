@@ -12,6 +12,7 @@ const Weather = () => {
       dispatch(fetchWeather(city));
     }
   };
+  console.log(weatherData);
 
   return (
     <div className="weather-container">
@@ -27,9 +28,9 @@ const Weather = () => {
       {status === "loading" && <p>Loading...</p>}
       {status === "succeeded" && weatherData && (
         <div className="weather-info">
-          {/* <h2>{weatherData.name}</h2> */}
-          <p>Temperature: </p>
-          <p>Weather: </p>
+          <h2>{weatherData.name}</h2>
+          <p>Temperature: {weatherData.main.temp}</p>
+          <p>Weather: {weatherData.weather[0].description}</p>
         </div>
       )}
       {status === "failed" && <p>Error: {error}</p>}
