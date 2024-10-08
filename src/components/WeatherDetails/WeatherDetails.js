@@ -19,6 +19,7 @@ const WeatherDetails = ({
     { label: "Wind Gusts", value: `${windGust} m/s` },
     { label: "Wind Direction", value: getWindDirection(windDeg) },
   ];
+
   return (
     <div className={styles.weatherDetails}>
       <div className={styles.currentWeather}>

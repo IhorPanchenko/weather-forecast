@@ -15,49 +15,52 @@ const SearchHistory = memo(({ history }) => {
     <div className={styles.searchHistory}>
       <h3>Last 5 searches:</h3>
       <ul>
-        {history.map(
-          ({
-            name,
-            temp,
-            feelsLike,
-            pressure,
-            humidity,
-            weather,
-            icon,
-            windDeg,
-            windGust,
-            windSpeed,
-            visibility,
-          }) => (
-            <li
-              className={styles[getWeatherClass(temp)]}
-              key={`${name}-${temp}`}
-            >
-              <img
-                src={`https://openweathermap.org/img/wn/${icon}.png`}
-                alt={`${weather} icon`}
-              />
-              <strong>{name}</strong> {temp}°C, {weather}
-              {openItem === name && (
-                <WeatherDetails
-                  feelsLike={feelsLike}
-                  pressure={pressure}
-                  humidity={humidity}
-                  windDeg={windDeg}
-                  windGust={windGust}
-                  windSpeed={windSpeed}
-                  visibility={visibility}
-                />
-              )}
-              <button
-                className={styles.btnDetails}
-                onClick={() => toggleDetails(name)}
+        {history
+          .slice(0)
+          .reverse()
+          .map(
+            ({
+              name,
+              temp,
+              feelsLike,
+              pressure,
+              humidity,
+              weather,
+              icon,
+              windDeg,
+              windGust,
+              windSpeed,
+              visibility,
+            }) => (
+              <li
+                className={styles[getWeatherClass(temp)]}
+                key={`${name}-${temp}`}
               >
-                {openItem === name ? "Hide Details" : "Show Details"}
-              </button>
-            </li>
-          )
-        )}
+                <img
+                  src={`https://openweathermap.org/img/wn/${icon}.png`}
+                  alt={`${weather} icon`}
+                />
+                <strong>{name}</strong> {temp}°C, {weather}
+                {openItem === name && (
+                  <WeatherDetails
+                    feelsLike={feelsLike}
+                    pressure={pressure}
+                    humidity={humidity}
+                    windDeg={windDeg}
+                    windGust={windGust}
+                    windSpeed={windSpeed}
+                    visibility={visibility}
+                  />
+                )}
+                <button
+                  className={styles.btnDetails}
+                  onClick={() => toggleDetails(name)}
+                >
+                  {openItem === name ? "Hide Details" : "Show Details"}
+                </button>
+              </li>
+            )
+          )}
       </ul>
     </div>
   );

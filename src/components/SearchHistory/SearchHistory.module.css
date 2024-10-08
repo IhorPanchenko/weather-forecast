@@ -44,33 +44,34 @@
 .searchHistory .btnDetails:hover {
   background-color: var(--hover-color);
 }
+
 .veryCold {
-  background-color: #1e90ff;
+  background-color: #0044cc;
   color: #ffffff;
 }
 
 .cold {
-  background-color: #6fa3ef;
-  color: #333333;
+  background-color: #4a90e2;
+  color: #ffffff;
 }
 
 .cool {
-  background-color: #ffcc80;
+  background-color: #ffd54f;
   color: #333333;
 }
 
 .mild {
-  background-color: #ffe57f;
+  background-color: #ffeb3b;
   color: #333333;
 }
 
 .warm {
-  background-color: #ff7043;
+  background-color: #ff5722;
   color: #ffffff;
 }
 
 .hot {
-  background-color: #d32f2f;
+  background-color: #b71c1c;
   color: #ffffff;
 }
 
