@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../api/weatherApi";
 import { resetWeather } from "../../features/weather/weatherSlice";
+import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import SearchHistory from "../SearchHistory/SearchHistory";
-import { getWeatherClass } from "../../utils/utils";
 import styles from "./Weather.module.css";
 
 const Weather = () => {
@@ -55,19 +55,7 @@ const Weather = () => {
 
       {status === "loading" && <p className={styles.loading}>Loading...</p>}
       {status === "succeeded" && weatherData && (
-        <div
-          className={`${styles.weatherInfo} ${
-            styles[getWeatherClass(weatherData.temp)]
-          }`}
-        >
-          <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.temp}°C</p>
-          <p>Weather: {weatherData.weather}</p>
-          <img
-            src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-            alt="weather icon"
-          />
-        </div>
+        <WeatherInfo weatherData={weatherData} />
       )}
       {error && <p className={styles.errorMessage}>{error}</p>}
 
