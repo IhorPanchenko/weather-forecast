@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../api/weatherApi";
 import { resetWeather } from "../../features/weather/weatherSlice";
@@ -7,7 +7,7 @@ import { getWeatherClass } from "../../utils/utils";
 import styles from "./Weather.module.css";
 
 const Weather = () => {
-  const [city, setCity] = useState("");
+  const cityInputRef = useRef(null);
   const [history, setHistory] = useState([]);
   const [error, setError] = useState("");
   const dispatch = useDispatch();
@@ -15,43 +15,41 @@ const Weather = () => {
 
   const handleReset = () => {
     dispatch(resetWeather());
-    setCity("");
+    cityInputRef.current.value = "";
     setError("");
     // setHistory([]);
   };
 
   const handleFetchWeather = () => {
-    if (city) {
-      setError("");
+    const city = cityInputRef.current.value;
 
-      dispatch(fetchWeather(city)).then((response) => {
-        if (response.payload) {
-          setHistory((prevHistory) => {
-            const newHistory = [...prevHistory, response.payload];
-
-            if (newHistory.length > 5) {
-              newHistory.shift();
-            }
-            return newHistory;
-          });
-        } else {
-          setError("Please enter a valid city name");
-        }
-      });
-    } else {
+    if (!city) {
       setError("City name cannot be empty");
+      return;
     }
+
+    setError("");
+
+    dispatch(fetchWeather(city)).then((response) => {
+      if (response.payload) {
+        setHistory((prevHistory) => {
+          const newHistory = [...prevHistory, response.payload];
+
+          if (newHistory.length > 5) {
+            newHistory.shift();
+          }
+          return newHistory;
+        });
+      } else {
+        setError("Please enter a valid city name");
+      }
+    });
   };
 
   return (
     <div className={styles.weatherContainer}>
       <h1>Weather Forecast</h1>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city"
-      />
+      <input type="text" ref={cityInputRef} placeholder="Enter city" />
       <button onClick={handleFetchWeather}>Get Weather</button>
       <button onClick={handleReset}>Reset</button>
 
