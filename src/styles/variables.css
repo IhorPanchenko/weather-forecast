@@ -1,0 +1,19 @@
+:root {
+  --primary-color: #0077ff;
+  --hover-color: #005bb5;
+  --error-color: #ff4d4f;
+  --warm-bg: #ffe5b4;
+  --warm-text: #804800;
+  --fall-bg: #f0e68c;
+  --fall-text: #663300;
+  --cold-bg: #add8e6;
+  --cold-text: #003366;
+  --hover-bg: #e0e0e0;
+  --background-color: #f0f4f8;
+  --text-color: #333;
+  --font-family: "Poppins", sans-serif;
+  --code-font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.05);
+}
