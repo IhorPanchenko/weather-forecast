@@ -17,6 +17,7 @@ const Weather = () => {
     dispatch(resetWeather());
     setCity("");
     setError("");
+    // setHistory([]);
   };
 
   const handleFetchWeather = () => {
@@ -26,15 +27,7 @@ const Weather = () => {
       dispatch(fetchWeather(city)).then((response) => {
         if (response.payload) {
           setHistory((prevHistory) => {
-            const newHistory = [
-              ...prevHistory,
-              {
-                name: response.payload.name,
-                temp: response.payload.main.temp,
-                weather: response.payload.weather[0].description,
-                icon: response.payload.weather[0].icon,
-              },
-            ];
+            const newHistory = [...prevHistory, response.payload];
 
             if (newHistory.length > 5) {
               newHistory.shift();
@@ -66,14 +59,14 @@ const Weather = () => {
       {status === "succeeded" && weatherData && (
         <div
           className={`${styles.weatherInfo} ${
-            styles[getWeatherClass(weatherData.main.temp)]
+            styles[getWeatherClass(weatherData.temp)]
           }`}
         >
           <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Weather: {weatherData.weather[0].description}</p>
+          <p>Temperature: {weatherData.temp}°C</p>
+          <p>Weather: {weatherData.weather}</p>
           <img
-            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+            src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
             alt="weather icon"
           />
         </div>
