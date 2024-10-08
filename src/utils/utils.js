@@ -6,6 +6,25 @@ const TEMPERATURE_THRESHOLDS = {
   WARM: 25,
 };
 
+const DIRECTIONS = [
+  "N",
+  "NNE",
+  "NE",
+  "ENE",
+  "E",
+  "ESE",
+  "SE",
+  "SSE",
+  "S",
+  "SSW",
+  "SW",
+  "WSW",
+  "W",
+  "WNW",
+  "NW",
+  "NNW",
+];
+
 /**
  * Get the weather class based on temperature.
  *
@@ -26,4 +45,21 @@ export const getWeatherClass = (temp) => {
   } else {
     return "hot"; // Above 25
   }
+};
+
+/**
+ * Converts wind direction from degrees to compass points.
+ *
+ * @param {number} degrees - The wind direction in degrees (0-359).
+ * @returns {string} The corresponding compass direction.
+ * @throws {Error} If the degrees are not within the range 0-359.
+ */
+export const getWindDirection = (degrees) => {
+  if (degrees < 0 || degrees >= 360) {
+    return "Invalid direction";
+  }
+
+  const directionIndex = Math.floor((degrees + 11.25) / 22.5) % 16;
+
+  return DIRECTIONS[directionIndex];
 };

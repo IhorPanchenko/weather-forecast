@@ -12,6 +12,7 @@ const Weather = () => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const { weatherData, status } = useSelector((state) => state.weather);
+  console.log(weatherData);
 
   const handleReset = () => {
     dispatch(resetWeather());
