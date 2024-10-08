@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../api/weatherApi";
+import { resetWeather } from "../../features/weather/weatherSlice";
 import SearchHistory from "../SearchHistory/SearchHistory";
 import { getWeatherClass } from "../../utils/utils";
-import { resetWeather } from "../../features/weather/weatherSlice";
 import styles from "./Weather.module.css";
 
 const Weather = () => {
@@ -15,6 +15,8 @@ const Weather = () => {
 
   const handleReset = () => {
     dispatch(resetWeather());
+    setCity("");
+    setError("");
   };
 
   const handleFetchWeather = () => {
