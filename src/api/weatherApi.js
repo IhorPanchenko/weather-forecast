@@ -23,11 +23,11 @@ export const fetchWeather = createAsyncThunk(
 
     try {
       const response = await fetch(url);
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "City not found");
-      }
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "City not found");
+      }
       return data;
     } catch (error) {
       console.error("Fetch weather error:", error.message);

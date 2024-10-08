@@ -13,17 +13,17 @@ const TEMPERATURE_THRESHOLDS = {
  * @returns {string} - The corresponding weather class: "veryCold", "cold", "cool", "mild", "warm", "hot", or "unknown".
  */
 export const getWeatherClass = (temp) => {
-  if (temp < TEMPERATURE_THRESHOLDS.VERY_COLD) return "veryCold"; // Below 0
-  if (
-    temp >= TEMPERATURE_THRESHOLDS.VERY_COLD &&
-    temp <= TEMPERATURE_THRESHOLDS.COLD
-  )
+  if (temp < TEMPERATURE_THRESHOLDS.VERY_COLD) {
+    return "veryCold"; // Below 0
+  } else if (temp <= TEMPERATURE_THRESHOLDS.COLD) {
     return "cold"; // 0 to 5
-  if (temp > TEMPERATURE_THRESHOLDS.COLD && temp <= TEMPERATURE_THRESHOLDS.COOL)
+  } else if (temp <= TEMPERATURE_THRESHOLDS.COOL) {
     return "cool"; // 6 to 15
-  if (temp > TEMPERATURE_THRESHOLDS.COOL && temp <= TEMPERATURE_THRESHOLDS.MILD)
+  } else if (temp <= TEMPERATURE_THRESHOLDS.MILD) {
     return "mild"; // 16 to 20
-  if (temp > TEMPERATURE_THRESHOLDS.MILD && temp <= TEMPERATURE_THRESHOLDS.WARM)
+  } else if (temp <= TEMPERATURE_THRESHOLDS.WARM) {
     return "warm"; // 21 to 25
-  return "hot";
+  } else {
+    return "hot"; // Above 25
+  }
 };
