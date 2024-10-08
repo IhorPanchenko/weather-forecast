@@ -57,7 +57,7 @@ const Weather = () => {
       {status === "succeeded" && weatherData && (
         <WeatherInfo weatherData={weatherData} />
       )}
-      {error && <p className={styles.errorMessage}>{error}</p>}
+      {error ? <p className={styles.errorMessage}>{error}</p> : null}
 
       {history.length > 0 && <SearchHistory history={history} />}
     </div>
