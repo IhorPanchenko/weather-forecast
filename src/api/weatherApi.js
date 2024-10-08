@@ -13,7 +13,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchWeather = createAsyncThunk(
   "weather/fetchWeather",
   async (city) => {
-    const apiKey = "7929ccdb59549afcfa7312570897f56e";
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     // Constructs the API URL
     const buildUrl = (city) =>
