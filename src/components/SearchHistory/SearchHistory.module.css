@@ -13,74 +13,8 @@
   padding-left: 0;
 }
 
-.searchHistory li {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  box-shadow: 0 5px 15px var(--shadow);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.searchHistory li strong {
-  color: var(--primary-color);
-  margin-right: 8px;
-}
-
-.searchHistory .btnDetails {
-  background-color: var(--btn-color);
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.searchHistory .btnDetails:hover {
-  background-color: var(--hover-color);
-}
-
-.veryCold {
-  background-color: var(--very-cold-bg);
-  color: var(--very-cold-text);
-}
-
-.cold {
-  background-color: var(--cold-bg);
-  color: var(--cold-text);
-}
-
-.cool {
-  background-color: var(--cool-bg);
-  color: var(--cool-text);
-}
-
-.mild {
-  background-color: var(--mild-bg);
-  color: var(--mild-text);
-}
-
-.warm {
-  background-color: var(--warm-bg);
-  color: var(--warm-text);
-}
-
-.hot {
-  background-color: var(--hot-bg);
-  color: var(--hot-text);
-}
-
 @media (max-width: 600px) {
   .searchHistory h3 {
     font-size: 1.1rem;
-  }
-
-  .searchHistory li {
-    padding: 8px;
   }
 }

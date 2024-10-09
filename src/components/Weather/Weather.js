@@ -9,6 +9,7 @@ import styles from "./Weather.module.css";
 const Weather = () => {
   const cityInputRef = useRef(null);
   const [history, setHistory] = useState([]);
+  const reversedHistory = [...history].reverse();
   const [error, setError] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dispatch = useDispatch();
@@ -87,7 +88,7 @@ const Weather = () => {
       )}
       {error ? <p className={styles.errorMessage}>{error}</p> : null}
 
-      {history.length > 0 && <SearchHistory history={history} />}
+      {history.length > 0 && <SearchHistory history={reversedHistory} />}
     </div>
   );
 };
