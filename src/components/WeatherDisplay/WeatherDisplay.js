@@ -9,7 +9,6 @@ import styles from "./WeatherDisplay.module.css";
 const Weather = () => {
   const cityInputRef = useRef(null);
   const [history, setHistory] = useState([]);
-  const reversedHistory = [...history].reverse();
   const [error, setError] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dispatch = useDispatch();
@@ -70,10 +69,10 @@ const Weather = () => {
             return prevHistory;
           }
 
-          const newHistory = [...prevHistory, response.payload];
+          const newHistory = [response.payload, ...prevHistory];
 
           if (newHistory.length > 5) {
-            newHistory.shift();
+            newHistory.pop();
           }
           return newHistory;
         });
@@ -109,7 +108,7 @@ const Weather = () => {
       )}
       {error ? <p className={styles.errorMessage}>{error}</p> : null}
 
-      {history.length > 0 && <SearchHistory history={reversedHistory} />}
+      {history.length > 0 && <SearchHistory history={history} />}
     </div>
   );
 };

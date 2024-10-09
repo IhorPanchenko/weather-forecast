@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import styles from "./SearchHistory.module.css";
@@ -6,9 +6,9 @@ import styles from "./SearchHistory.module.css";
 const SearchHistory = memo(({ history }) => {
   const [openItem, setOpenItem] = useState(null);
 
-  const toggleDetails = (name) => {
-    setOpenItem(openItem === name ? null : name);
-  };
+  const toggleDetails = useCallback((name) => {
+    setOpenItem((prevOpenItem) => (prevOpenItem === name ? null : name));
+  }, []);
 
   return (
     <div className={styles.searchHistory}>
