@@ -33,6 +33,12 @@ const Weather = () => {
     setHistory([]);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleFetchWeather();
+    }
+  };
+
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
@@ -85,6 +91,7 @@ const Weather = () => {
         ref={cityInputRef}
         name="city"
         placeholder="Enter city"
+        onKeyDown={handleKeyPress}
       />
       <button onClick={handleFetchWeather}>Get Weather</button>
       <button onClick={handleReset}>Reset Search</button>
