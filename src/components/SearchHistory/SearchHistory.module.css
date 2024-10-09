@@ -18,3 +18,24 @@
     font-size: 1.1rem;
   }
 }
+
+@media (max-width: 480px) {
+  .searchHistory {
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .searchHistory h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .searchHistory ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}

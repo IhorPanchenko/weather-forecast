@@ -38,3 +38,50 @@
 .infoBlock span {
   color: var(--text-color);
 }
+
+@media (max-width: 600px) {
+  .weatherDetails {
+    padding: 0 15px;
+    min-width: 70%;
+  }
+
+  .currentWeather h2 {
+    font-size: 1.75rem;
+  }
+
+  .infoBlock {
+    padding: 6px 0;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .infoBlock span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weatherDetails {
+    padding: 0 10px;
+  }
+
+  .currentWeather h2 {
+    font-size: 1.5rem;
+  }
+
+  .infoBlock {
+    flex-direction: column;
+    padding: 4px 0;
+  }
+
+  .label {
+    font-size: 0.85rem;
+  }
+
+  .infoBlock span {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+}

@@ -10,6 +10,7 @@ li {
 }
 
 li strong {
+  font-size: 1rem;
   color: var(--primary-color);
   margin-right: 8px;
 }
@@ -63,5 +64,22 @@ li strong {
 @media (max-width: 600px) {
   li {
     padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  li {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  li strong {
+    font-size: 1rem;
+    margin-right: 4px;
+  }
+
+  .btnDetails {
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
 }

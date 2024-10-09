@@ -94,3 +94,35 @@ button:hover {
     width: 90%;
   }
 }
+
+@media (max-width: 480px) {
+  .weatherContainer {
+    width: 90%;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  input {
+    width: 80%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .modeBtn {
+    font-size: 18px;
+  }
+
+  .errorMessage,
+  .loading {
+    font-size: 1rem;
+  }
+}

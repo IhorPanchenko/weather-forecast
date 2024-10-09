@@ -32,3 +32,12 @@ code {
     padding: 10px;
   }
 }
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.75rem;
+    padding: 10px;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+}
