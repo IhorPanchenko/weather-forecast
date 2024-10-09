@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { getWeatherClass } from "../../utils/utils";
-import styles from "./WeatherInfo.module.css";
+import styles from "./WeatherSummary.module.css";
 
 const WeatherInfo = ({ weatherData }) => {
   return (

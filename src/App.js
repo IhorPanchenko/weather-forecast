@@ -1,12 +1,12 @@
 import { Provider } from "react-redux";
 import { store } from "./store";
-import Weather from "./components/Weather/Weather";
+import WeatherDisplay from "./components/WeatherDisplay/WeatherDisplay";
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Weather />
+        <WeatherDisplay />
       </div>
     </Provider>
   );

@@ -2,7 +2,7 @@ import { memo } from "react";
 import PropTypes from "prop-types";
 import { getWeatherClass } from "../../utils/utils";
 import WeatherDetails from "../WeatherDetails/WeatherDetails";
-import styles from "./WeatherItem.module.css";
+import styles from "./WeatherCard.module.css";
 
 const WeatherItem = memo(
   ({

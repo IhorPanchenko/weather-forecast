@@ -2,9 +2,9 @@ import { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../api/weatherApi";
 import { resetWeather } from "../../features/weather/weatherSlice";
-import WeatherInfo from "../WeatherInfo/WeatherInfo";
+import WeatherSummary from "../WeatherSummary/WeatherSummary ";
 import SearchHistory from "../SearchHistory/SearchHistory";
-import styles from "./Weather.module.css";
+import styles from "./WeatherDisplay.module.css";
 
 const Weather = () => {
   const cityInputRef = useRef(null);
@@ -30,7 +30,7 @@ const Weather = () => {
     dispatch(resetWeather());
     cityInputRef.current.value = "";
     setError("");
-    // setHistory([]);
+    setHistory([]);
   };
 
   const toggleDarkMode = () => {
@@ -73,7 +73,7 @@ const Weather = () => {
       <h1>Weather Forecast</h1>
       <input type="text" ref={cityInputRef} placeholder="Enter city" />
       <button onClick={handleFetchWeather}>Get Weather</button>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleReset}>Reset Search</button>
       <button onClick={toggleDarkMode} className={styles.modeBtn}>
         {isDarkMode ? (
           <i className="fas fa-sun"></i>
@@ -84,7 +84,7 @@ const Weather = () => {
 
       {status === "loading" && <p className={styles.loading}>Loading...</p>}
       {status === "succeeded" && weatherData && (
-        <WeatherInfo weatherData={weatherData} />
+        <WeatherSummary weatherData={weatherData} />
       )}
       {error ? <p className={styles.errorMessage}>{error}</p> : null}
 

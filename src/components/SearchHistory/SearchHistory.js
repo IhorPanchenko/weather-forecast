@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import PropTypes from "prop-types";
-import WeatherItem from "../WeatherItem/WeatherItem";
+import WeatherCard from "../WeatherCard/WeatherCard";
 import styles from "./SearchHistory.module.css";
 
 const SearchHistory = memo(({ history }) => {
@@ -18,7 +18,7 @@ const SearchHistory = memo(({ history }) => {
           const isOpen = openItem === item.name;
 
           return (
-            <WeatherItem
+            <WeatherCard
               key={item.name}
               {...item}
               isOpen={isOpen}
