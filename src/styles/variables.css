@@ -2,18 +2,47 @@
   --primary-color: #0077ff;
   --hover-color: #005bb5;
   --error-color: #ff4d4f;
-  --warm-bg: #ffe5b4;
-  --warm-text: #804800;
-  --fall-bg: #f0e68c;
-  --fall-text: #663300;
-  --cold-bg: #add8e6;
-  --cold-text: #003366;
-  --hover-bg: #e0e0e0;
+  --very-cold-bg: #0044cc;
+  --very-cold-text: #ffffff;
+  --cold-bg: #4a90e2;
+  --cold-text: #ffffff;
+  --cool-bg: #ffd54f;
+  --cool-text: #333333;
+  --mild-bg: #ffeb3b;
+  --mild-text: #333333;
+  --warm-bg: #ff5722;
+  --warm-text: #ffffff;
+  --hot-bg: #f0e68c;
+  --hot-text: #b71c1c;
+  --hover-bg: #ffffff;
   --background-color: #f0f4f8;
-  --text-color: #333;
+  --text-color: #333333;
+  --btn-color: #0077ff;
   --font-family: "Poppins", sans-serif;
   --code-font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   --box-shadow: rgba(0, 0, 0, 0.1);
   --shadow: rgba(0, 0, 0, 0.05);
+}
+
+body.darkMode {
+  --primary-color: #3399ff;
+  --hover-color: #1e90ff;
+  --error-color: #ff6666;
+  --very-cold-bg: #002266;
+  --very-cold-text: #e0e0e0;
+  --cold-bg: #336699;
+  --cold-text: #e0e0e0;
+  --cool-bg: #ffeb99;
+  --cool-text: #1e1e1e;
+  --mild-bg: #ffd700;
+  --mild-text: #1e1e1e;
+  --warm-bg: #ff784e;
+  --warm-text: #ffffff;
+  --hot-bg: #ffcc80;
+  --hot-text: #b71c1c;
+  --hover-bg: #333333;
+  --background-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --btn-color: #0056b3;
 }

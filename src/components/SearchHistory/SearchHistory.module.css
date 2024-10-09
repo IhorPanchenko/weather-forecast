@@ -30,7 +30,7 @@
 }
 
 .searchHistory .btnDetails {
-  background-color: var(--primary-color);
+  background-color: var(--btn-color);
   color: white;
   padding: 10px 15px;
   border: none;
@@ -46,33 +46,33 @@
 }
 
 .veryCold {
-  background-color: #0044cc;
-  color: #ffffff;
+  background-color: var(--very-cold-bg);
+  color: var(--very-cold-text);
 }
 
 .cold {
-  background-color: #4a90e2;
-  color: #ffffff;
+  background-color: var(--cold-bg);
+  color: var(--cold-text);
 }
 
 .cool {
-  background-color: #ffd54f;
-  color: #333333;
+  background-color: var(--cool-bg);
+  color: var(--cool-text);
 }
 
 .mild {
-  background-color: #ffeb3b;
-  color: #333333;
+  background-color: var(--mild-bg);
+  color: var(--mild-text);
 }
 
 .warm {
-  background-color: #ff5722;
-  color: #ffffff;
+  background-color: var(--warm-bg);
+  color: var(--warm-text);
 }
 
 .hot {
-  background-color: #b71c1c;
-  color: #ffffff;
+  background-color: var(--hot-bg);
+  color: var(--hot-text);
 }
 
 @media (max-width: 600px) {

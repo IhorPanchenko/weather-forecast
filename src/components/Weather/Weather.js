@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../api/weatherApi";
 import { resetWeather } from "../../features/weather/weatherSlice";
@@ -10,14 +10,35 @@ const Weather = () => {
   const cityInputRef = useRef(null);
   const [history, setHistory] = useState([]);
   const [error, setError] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const dispatch = useDispatch();
   const { weatherData, status } = useSelector((state) => state.weather);
+
+  useEffect(() => {
+    const saveMode = localStorage.getItem("darkMode");
+
+    if (saveMode) {
+      setIsDarkMode(JSON.parse(saveMode));
+      if (JSON.parse(saveMode)) {
+        document.body.classList.add("darkMode");
+      }
+    }
+  }, []);
 
   const handleReset = () => {
     dispatch(resetWeather());
     cityInputRef.current.value = "";
     setError("");
     // setHistory([]);
+  };
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("darkMode", JSON.stringify(newMode));
+      document.body.classList.toggle("darkMode", newMode);
+      return newMode;
+    });
   };
 
   const handleFetchWeather = () => {
@@ -52,6 +73,13 @@ const Weather = () => {
       <input type="text" ref={cityInputRef} placeholder="Enter city" />
       <button onClick={handleFetchWeather}>Get Weather</button>
       <button onClick={handleReset}>Reset</button>
+      <button onClick={toggleDarkMode} className={styles.modeBtn}>
+        {isDarkMode ? (
+          <i className="fas fa-sun"></i>
+        ) : (
+          <i className="fas fa-moon"></i>
+        )}
+      </button>
 
       {status === "loading" && <p className={styles.loading}>Loading...</p>}
       {status === "succeeded" && weatherData && (

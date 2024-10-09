@@ -38,7 +38,6 @@ export const fetchWeather = createAsyncThunk(
         weather: data.weather[0].description,
         icon: data.weather[0].icon,
         windDeg: data.wind.deg,
-        windGust: data.wind.gust,
         windSpeed: data.wind.speed,
         visibility: data.visibility,
       };

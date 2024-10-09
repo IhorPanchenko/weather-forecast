@@ -6,7 +6,6 @@ const WeatherDetails = ({
   pressure,
   humidity,
   windDeg,
-  windGust,
   windSpeed,
   visibility,
 }) => {
@@ -16,7 +15,6 @@ const WeatherDetails = ({
     { label: "Humidity", value: `${humidity}%` },
     { label: "Visibility", value: `${(visibility / 1000).toFixed(1)} km` },
     { label: "Wind Speed", value: `${windSpeed} m/s` },
-    { label: "Wind Gusts", value: `${windGust} m/s` },
     { label: "Wind Direction", value: getWindDirection(windDeg) },
   ];
 

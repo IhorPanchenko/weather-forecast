@@ -28,7 +28,6 @@ const SearchHistory = memo(({ history }) => {
               weather,
               icon,
               windDeg,
-              windGust,
               windSpeed,
               visibility,
             }) => (
@@ -47,7 +46,6 @@ const SearchHistory = memo(({ history }) => {
                     pressure={pressure}
                     humidity={humidity}
                     windDeg={windDeg}
-                    windGust={windGust}
                     windSpeed={windSpeed}
                     visibility={visibility}
                   />
@@ -77,7 +75,6 @@ SearchHistory.propTypes = {
       pressure: PropTypes.number.isRequired,
       humidity: PropTypes.number.isRequired,
       windDeg: PropTypes.number.isRequired,
-      windGust: PropTypes.number.isRequired,
       windSpeed: PropTypes.number.isRequired,
       visibility: PropTypes.number.isRequired,
     })
