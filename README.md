@@ -2,6 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Weather-Forecast App
+
+The Weather-Forecast app allows users to search for the current weather conditions of various cities around the world. It provides essential weather information such as temperature, humidity, wind speed, and a weather icon representation.
+
+## Getting Your API Key
+
+To access weather data, you need an API key from OpenWeatherMap. Follow these steps to obtain your API key:
+
+1. Visit [OpenWeatherMap](https://openweathermap.org/).
+2. Sign up for a free account or log in if you already have one.
+3. Navigate to the **API keys** section in your account settings.
+4. Generate a new API key if you don't have one.
+
+## Adding Your API Key to the Project
+
+Once you have your API key, you need to add it to your project:
+
+1. Create a new file named `.env` in the root of your project directory.
+2. Add your API key to the `.env` file in the following format:
+
+   ```plaintext
+   REACT_APP_WEATHER_API_KEY=your_api_key_here
+   ```
+
 ## Available Scripts
 
 In the project directory, you can run:
