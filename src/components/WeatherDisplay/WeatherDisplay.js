@@ -55,6 +55,15 @@ const Weather = () => {
     dispatch(fetchWeather(city)).then((response) => {
       if (response.payload) {
         setHistory((prevHistory) => {
+          const cityExists = prevHistory.some(
+            (item) =>
+              item.name.toLowerCase() === response.payload.name.toLowerCase()
+          );
+
+          if (cityExists) {
+            return prevHistory;
+          }
+
           const newHistory = [...prevHistory, response.payload];
 
           if (newHistory.length > 5) {
@@ -71,7 +80,12 @@ const Weather = () => {
   return (
     <div className={styles.weatherContainer}>
       <h1>Weather Forecast</h1>
-      <input type="text" ref={cityInputRef} placeholder="Enter city" />
+      <input
+        type="text"
+        ref={cityInputRef}
+        name="city"
+        placeholder="Enter city"
+      />
       <button onClick={handleFetchWeather}>Get Weather</button>
       <button onClick={handleReset}>Reset Search</button>
       <button onClick={toggleDarkMode} className={styles.modeBtn}>
