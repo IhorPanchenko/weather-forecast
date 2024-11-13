@@ -1,10 +1,11 @@
 .weatherDetails {
   background-color: var(--background-color);
   color: var(--text-color);
-  padding: 0 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px var(--shadow);
+  padding: 20px 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px var(--shadow);
   max-width: 400px;
+  min-width: 275px;
   margin: 10px auto;
 }
 
@@ -16,7 +17,7 @@
 }
 
 .currentWeather h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--primary-color);
 }
 
@@ -27,7 +28,7 @@
 .infoBlock {
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
 .label {
@@ -64,7 +65,8 @@
 
 @media (max-width: 480px) {
   .weatherDetails {
-    padding: 0 10px;
+    width: 90%;
+    padding: 0 15px;
   }
 
   .currentWeather h2 {
@@ -72,7 +74,7 @@
   }
 
   .infoBlock {
-    flex-direction: column;
+    flex-direction: row;
     padding: 4px 0;
   }
 

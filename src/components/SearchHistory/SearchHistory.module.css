@@ -5,12 +5,25 @@
 
 .searchHistory h3 {
   font-size: 1.25rem;
-  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .searchHistory ul {
   list-style-type: none;
   padding-left: 0;
+  margin: 0;
+}
+
+.searchHistory li {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.searchHistory li:hover {
+  background-color: #e0e0e0;
 }
 
 @media (max-width: 600px) {
@@ -22,20 +35,7 @@
 @media (max-width: 480px) {
   .searchHistory {
     font-size: 14px;
-    padding: 10px;
     width: 100%;
     box-sizing: border-box;
-  }
-
-  .searchHistory h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .searchHistory ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
   }
 }

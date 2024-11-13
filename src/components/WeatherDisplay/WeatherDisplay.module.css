@@ -2,28 +2,27 @@
   position: relative;
   background-color: var(--background-color);
   padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 15px 30px var(--box-shadow);
-  max-width: 400px;
-  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px var(--box-shadow);
+  max-width: 450px;
   text-align: center;
   transition: transform 0.2s ease;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--primary-color);
-  margin-bottom: 20px;
-  font-weight: 600;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 input {
-  padding: 12px 15px;
-  width: 70%;
-  max-width: 300px;
-  border-radius: 8px;
+  padding: 15px 20px;
+  width: 80%;
+  max-width: 350px;
+  border-radius: 10px;
   border: 1px solid #ddd;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: border 0.3s ease, box-shadow 0.3s ease;
   outline: none;
 }
@@ -35,14 +34,14 @@ input:focus {
 }
 
 button {
-  padding: 12px 24px;
-  margin-top: 15px;
+  padding: 15px 30px;
+  margin-top: 20px;
   margin-right: 10px;
   background-color: var(--btn-color);
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-weight: 500;
@@ -50,17 +49,17 @@ button {
 
 button:hover {
   background-color: var(--hover-color);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .modeBtn {
   position: absolute;
   background-color: transparent;
-  top: 0;
-  right: 0;
-  padding: 0;
+  top: 5px;
+  right: 5px;
+  padding: 8px 12px;
   color: var(--primary-color);
-  font-size: 20px;
+  font-size: 1.5rem;
 }
 
 .modeBtn:hover {
@@ -68,26 +67,20 @@ button:hover {
   transform: translateY(-2px);
 }
 
-.errorMessage {
-  color: var(--error-color);
-  margin-top: 20px;
-  font-size: 1.125rem;
-  font-weight: 500;
-}
-
+.errorMessage,
 .loading {
-  font-size: 1.125rem;
-  color: var(--primary-color);
+  font-size: 1.2rem;
+  color: var(--text-color);
   margin-top: 20px;
 }
 
 @media (max-width: 600px) {
   .weatherContainer {
-    padding: 20px;
+    padding: 25px;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   input {
@@ -97,32 +90,32 @@ button:hover {
 
 @media (max-width: 480px) {
   .weatherContainer {
-    width: 90%;
-    padding: 15px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 15px;
   }
 
   h1 {
-    font-size: 1.25rem;
+    font-size: 1.8rem;
   }
 
   input {
-    width: 80%;
-    padding: 10px;
-    font-size: 0.9rem;
+    width: 85%;
+    padding: 12px 15px;
+    font-size: 1rem;
   }
 
   button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 
   .modeBtn {
-    font-size: 18px;
+    font-size: 1.2rem;
+    padding: 6px 8px;
   }
 
   .errorMessage,
   .loading {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }

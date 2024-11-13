@@ -1,7 +1,7 @@
 .weatherInfo {
   margin-top: 30px;
-  padding: 20px 20px 40px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -10,16 +10,16 @@
 
 .weatherInfo h2 {
   position: relative;
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: bold;
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   z-index: 2;
-  font-weight: 600;
 }
 
 .weatherInfo p {
-  font-size: 1.125rem;
-  margin: 5px 0;
+  font-size: 1.2rem;
+  margin: 10px 0;
   color: inherit;
 }
 
@@ -28,6 +28,7 @@
   top: -5px;
   left: -5px;
   z-index: 1;
+  opacity: 0.7;
 }
 
 .veryCold {
